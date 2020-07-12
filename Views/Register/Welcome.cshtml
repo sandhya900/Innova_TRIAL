@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Welcome</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div>
+
+        <h2> @ViewBag.Message </h2>
+    </div>
+
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Login", "Login", "Register")</li>
+       
+        </ul>
+    </div>
+</body>
+</html>

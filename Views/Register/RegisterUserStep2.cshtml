@@ -1,0 +1,62 @@
+﻿@model Innova_TRIAL.Models.Register.UserRegistration
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <h2>Register User Step 2</h2>
+    <h3>@ViewBag.Message</h3>
+
+
+    @using (Html.BeginForm("RegisterUserStep2", "Register", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.Verficationcode, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.Verficationcode, new { htmlAttributes = new { @class = "form-control col-md-2" } })
+            @Html.ValidationMessageFor(model => model.Verficationcode, "", new { @class = "text-danger col-md-2" })
+
+        </div>
+        <div class="form-group">
+            <span class = "control-label col-md-2" > Send Notification: </span>  @Html.CheckBoxFor(model => model.SendNotification,false)
+
+        </div>
+
+
+        <div class="form-group">
+
+
+            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control col-md-2" } })
+            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger col-md-2" })
+
+
+
+        </div>
+
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+
+    }
+    </body>
+</html>
